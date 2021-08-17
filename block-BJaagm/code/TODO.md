@@ -7,26 +7,26 @@ It means that the code is executed line by line.
 2. Where the JavaScript code gets executed?
 
 ```js
-In the browser, but also on the server
+In the browser, but also on the server recently. In Javascript Engine.
 ```
 
 3. What does context means in Global Execution Context?
 
 ```js
-When js executes code, it creates an execution context.
+When js executes code, it creates an execution context. Its the environment where the code gets executed.
 ```
 
 4. When do you create a global execution context.
 
 ```js
-When the code is executed for the first time
+When the code is executed for the first time.
 ```
 
 5. Execution context consists of what all things?
 
 ```js
-Creation Phase
-Execution Phase
+Memory - where values, varibles and functions (i.e. data is stored)
+Another part where operations, functions, etc are executed.
 ```
 
 6. What are the different types of execution context?
@@ -46,7 +46,7 @@ Function execution context is created whenever a function is executed.
 8. Function execution gets created during function execution or while declaring a function.
 
 ```js
-While declaring a function
+While executing a function.
 ```
 
 
@@ -66,7 +66,7 @@ var userMsg = sayHello(user);
 
 <!-- Put your image here -->
 
-![](./img/image-name.jpg)
+![](./img/1.png)
 
 
 
@@ -84,7 +84,7 @@ var percentageProfit = getPercentage(400, 200);
 
 <!-- Put your image here -->
 
-![](./img/image-name.jpg)
+![](./img/2.png)
 
 
 
@@ -105,4 +105,4 @@ var whoAmIAgain = customeMessage(12);
 
 <!-- Put your image here -->
 
-![](./img/image-name.jpg)
+![](./img/3.png)

@@ -17,7 +17,7 @@ change();
 console.log(species); // 2
 ```
 
-<!-- Put your image below -->
+<!-- Put your image below --> ok
 
 ![](./img/image-name.jpg)
 

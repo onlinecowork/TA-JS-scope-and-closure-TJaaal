@@ -6,7 +6,7 @@ Example:
 function hello() {
   var username = 'Arya';
 }
-console.log(useranme); // output
+console.log(useranme); // output test
 ```
 
 In above code we are looking for the variable named `usename`. There is no variable named `username` in the global scope. The variable is inside the function named `hello` and we can't access the variable defined inside a function from outside.

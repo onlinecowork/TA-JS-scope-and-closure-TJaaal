@@ -1,6 +1,19 @@
 1. Create a function by your choice that accepts a callback function.
 
+```js
+function age (num, cb) {
+  return cb(num);
+}
+
+function addTwo(num) {
+  num + 2;
+}
+```
+
 2. Create a function by you choice that returns a function reference.
+
+
+
 
 3. Create a higher order function called `map` that takes two inputs:
    - An array of numbers/string/boolean etc
@@ -9,8 +22,9 @@
 Have `map` return a new array filled with values that are the result of the 'callback' function on each element of the input array.
 
 ```js
-// Your code goes here
-
+function map(arr, cb) {
+  return cb(arr);
+}
 // Test Your Code
 function multiplyByTwo(n) {
   return n * 2;

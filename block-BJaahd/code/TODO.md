@@ -29,6 +29,8 @@ counter.decrement(); // output
 counter.value(); // output
 ```
 
+![](./img1.png);
+
 2. Create the execution context diagram and write the output.
 
 ```js
@@ -65,3 +67,5 @@ counter1.decrement();
 console.log(counter1.value()); // OUTPUT
 console.log(counter2.value()); // OUTPUT
 ```
+
+![](./img2.png);

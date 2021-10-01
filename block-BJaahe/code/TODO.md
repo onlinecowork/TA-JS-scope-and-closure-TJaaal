@@ -4,65 +4,74 @@
 
 ```js
 function outer(str) {
-  let sayHello = (str) => {
+  let sayHello = function () {
     alert(str);
-  }
-  return sayHello;
+  };
+  sayHello();
 }
 ```
 
 2. Write a function `delay` that accepts two arguments, a callback and the wait for the time in milliseconds (1000 ms is 1 second). `delay` should return a function that, when invoked waits for the specified amount of time before executing. (Use setTimeout)
 
 ```js
-function delay(cb, waitTime) {
-  return function setTimeOut;
+function delay(cb, ms) {
+  return function() {
+    setTimeOut(cb, ms);
+  };
 }
+
+// EXTRA
+
+let time = delay(()=> console.log("hello"), 2000),
+time() // "hello" will display in console after 2 seconds.
 ```
 
 3. Write a function with a closure. The first function should only take one argument, someone's last name, and return the inner function. The returned `inner` function should take one more argument, someone's first name. When inner function when called it should console.log both the first name and the last name with a space.
 
 ```js
-function lastName() {
-  
-  return function firstName() {
-    console.log(`${firstName} ${lastName}`);
-  }
+function lastName(ln) {
+  return function (fn) {
+    console.log(`${fn} ${ln}`);
+  };
 }
 
-let lastNameLee = lastName('lee'); // logs nothing
-lastNameLee('Brett'); //logs 'Brett Lee'
+let lastNameLee = lastName("lee"); // logs nothing
+lastNameLee("Brett"); //logs 'Brett Lee'
 ```
 
 This function is useful in case you want to create name for multiple people with same last name.
 
 ```js
-lastNameLee('Jane'); //logs 'Jane Lee'
-lastNameLee('Lynne'); //logs 'Lynne Lee'
+lastNameLee("Jane"); //logs 'Jane Lee'
+lastNameLee("Lynne"); //logs 'Lynne Lee'
 ```
 
 4. Create a `storyWriter` function that returns an object with two methods. One method, `addWords` adds a word to your story and returns the story while the other one, `erase`, resets the story back to an empty string. Here is an implementation:
 
 ```js
 function storyWriter() {
+  let story = "";
   return {
-    addWords: function story(word) {
-
-    }
-    erase: function reset(str){
-
-    }
-  }
+    addWords: function (word) {
+      story += word;
+      return story;
+    },
+    erase: function () {
+      story = "";
+      return story;
+    },
+  };
 }
 
 // Test
 let farmLoveStory = storyWriter();
-farmLoveStory.addWords('There was once a lonely cow.'); // 'There was once a lonely cow.'
-farmLoveStory.addWords('It saw a friendly face.'); //'There was once a lonely cow. It saw a friendly face.'
+farmLoveStory.addWords("There was once a lonely cow."); // 'There was once a lonely cow.'
+farmLoveStory.addWords("It saw a friendly face."); //'There was once a lonely cow. It saw a friendly face.'
 farmLoveStory.erase(); //''
 
 let storyOfMyLife = storyWriter();
-storyOfMyLife.addWords('My code broke.'); // 'My code broke.'
-storyOfMyLife.addWords('I ate some ice cream.'); //'My code broke. I ate some ice cream.'
+storyOfMyLife.addWords("My code broke."); // 'My code broke.'
+storyOfMyLife.addWords("I ate some ice cream."); //'My code broke. I ate some ice cream.'
 storyOfMyLife.erase(); // ''
 ```
 
@@ -73,10 +82,12 @@ When `forEach` function is called it returns another function. When the returned
 ```js
 function forEach(arr) {
   let index = 0;
-
+  return function() {
+    return arr[index++];
+  }
 }
 
-let next = [1, 2, 3, 4, 5];
+let next = forEach([1, 2, 3, 4, 5]);
 next(); // 1
 next(); // 2
 next(); // 3
@@ -90,17 +101,17 @@ The returned function accepts a string `prefix` and returns `prefix` and `title`
 
 ```js
 function addDesignation(title) {
-  return function(prefix) {
+  return function (prefix) {
     return `${prefix} ${title}`;
-  }
+  };
 }
 
-let sales = addDesignation('Salesman');
-sales('Main'); // Main Salesman
+let sales = addDesignation("Salesman");
+sales("Main"); // Main Salesman
 
-let manager = addDesignation('Manager');
-manager('Regional'); // Regional Manager
-manager('Head'); // Head Manager
+let manager = addDesignation("Manager");
+manager("Regional"); // Regional Manager
+manager("Head"); // Head Manager
 ```
 
 7. Create a function named `changeSalary` which accepts `currentSalary` (number) and returns an object that contains three methods
@@ -111,16 +122,12 @@ manager('Head'); // Head Manager
 
 ```js
 function changeSalary(currentSalary) {
-  let currentSalary = 0;
-  function changeBy(val){
-    currentSalary += val;
-  }
   return {
     raise: function() {
-      return changeBy(500);
+      return currentSalary + 500;
     }
     lower: function() {
-      return changeBy(-500;
+      return currentSalary - 500;
     }
     current: function() {
       return currentSalary;
@@ -146,11 +153,13 @@ function nameFactory(firstName, lastName) {
   return {
     getFullName: function() {
       return `${firstName} ${lastName}`;
-    }
-    setFirstName: function(firstName){
+    },
+    setFirstName: function(fn){
+      firstName= fn;
       return `${firstName} ${lastName}`;
-    }
-    setLastName: function(lastName){
+    },
+    setLastName: function(ln){
+      lastName = ln;
       return `${firstName} ${lastName}`;
     }
   }
@@ -167,15 +176,17 @@ arya.setLastName('Lannister'); // "Jon Lannister"
 The returned function accepts a string (children) and returns the children with the tag you passed.
 
 ```js
-function createTag(htmlElem) {
-  return function(children) {
-    return
-  }
+function createTag(tag) {
+  return function (child) {
+    let elem = document.createElement(tag);
+    elm.innerText = child
+    return elm;
+  };
 }
 
-let bold = createTag('b');
-bold('Hello World!'); // <b>Hello World!</b>
+let bold = createTag("b");
+bold("Hello World!"); // <b>Hello World!</b>
 
-let italic = createTag('i');
-italic('Hello World!'); // <i>Hello World!</i>
+let italic = createTag("i");
+italic("Hello World!"); // <i>Hello World!</i>
 ```

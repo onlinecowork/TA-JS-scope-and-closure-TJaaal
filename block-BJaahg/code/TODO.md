@@ -14,6 +14,10 @@ console.log(
   window.lastName,
   window.knownAs
 );
+
+// undefined
+// undefined
+// 'no-one'
 ```
 
 2. Guess the output:
@@ -28,6 +32,8 @@ function fullName(a, b) {
 }
 
 console.log(window.fullName(firstName, lastName));
+
+// AryaStark
 ```
 
 3. Make a Execution Context Diagram for the following JS and write the output.
@@ -96,6 +102,8 @@ function isAwesome() {
   console.log(awesome);
 }
 isAwesome();
+
+// undefined
 ```
 
 9. What will be the output of the following
@@ -109,6 +117,8 @@ function isAwesome() {
   console.log(awesome);
 }
 isAwesome();
+
+//true
 ```
 
 10. What will be the output of the following
@@ -122,6 +132,8 @@ function isAwesome() {
   console.log(awesome);
 }
 isAwesome();
+
+//undefined
 ```
 
 11. What will be the output of the following
@@ -136,6 +148,8 @@ function fullName(a, b) {
 }
 const name = fullName(firstName, lastName);
 console.log(name);
+
+// AryaStark 
 ```
 
 12. Guess the output of the code below with a reason.
@@ -147,6 +161,7 @@ function sayHello() {
 sayHello();
 
 console.log(name);
+//AryaStark
 ```
 
 13. Guess the output of the code below with a reason.

@@ -147,10 +147,13 @@ The function `schedule` will execute the function at first index after the value
 
 ```js
 function schedule(arrFn, arrSeconds) {
-  function setTimeOut
   if (arrFn.length !== arrSeconds.length) {
     alert('Invalid input');
+    return;
   }
+  arrFn.forEach((fn, i) => {
+    setTimeout(fn, arrSeconds[i] * 1000);
+  });
 }
 
 function sayHi() {
